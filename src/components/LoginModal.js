@@ -7,14 +7,60 @@ class LoginModal extends Component {
         super(props)
 
         this.state = {
-            valu: true
+            valu: true,
+            error:null,
+            email:'',
+            pass:'',
+            con_pass:'',
+            name:'',
+            mob:'',
+            city:'',
+            state:'',
+            type:'',
+            user_details:{}
         }
 
     }
 
+    
+
+    inputHandeler=(event)=>{
+        this.setState({
+            [event.target.name]:event.target.value
+        })
+        
+    }
+
+    onformSubmission=()=>{
+        if (this.state.pass==this.state.con_pass)
+        {
+            this.setState({
+                error: null,
+                user_details:{
+                    email:this.state.email,
+                    pass:this.state.pass,
+                    name:this.state.name,
+                    mob:this.state.mob,
+                    city:this.state.city,
+                    state:this.state.state,
+                    type:this.state.type
+                }
+            })
+            console.log(this.state.user_details)
+            console.log(JSON.stringify(this.state.user_details))
+        }
+        else
+        {
+
+            this.setState({
+                error: 'Password don\'t match'
+            })
+        }
+        
+    }
     render() {
         var login = <div id="login1" className="modal-body" ref={this.login}>
-            <form method="POST" action="#">
+            
                 <div className="form-group">
                     <input type="text" className="form-control" name="your-email" placeholder="Your Email" />
                 </div>
@@ -24,34 +70,35 @@ class LoginModal extends Component {
                 <div className="text-center">
                     <button type="submit" className="btn btn-danger">Log In</button>
                 </div>
-            </form>
+            >
         </div>;
         var logup = <div id="logup" ref={this.logup} className="modal-body ">
-            <form method="POST" action="#">
+            
                 <div className="form-group">
-                    <input type="email" className="form-control" name="your-email" placeholder="Your Email" />
+                    <input type="email" className="form-control" name="email" placeholder="Your Email" onChange={this.inputHandeler} value={this.state.email} />
                 </div>
                 <div className="form-group">
-                    <input type="password" className="form-control" name="your-pass" placeholder="Your Password" />
+                    <input type="password" className="form-control" name="pass" placeholder="Your Password" onChange={this.inputHandeler} value={this.state.pass}/>
+                </div>
+                <lable style={{color:'red'}}>{this.state.error}</lable>
+                <div className="form-group">
+                    <input type="password" className="form-control" name="con_pass"
+                        placeholder="Your Confirm Password" onChange={this.inputHandeler} value={this.state.con_pass}/>
                 </div>
                 <div className="form-group">
-                    <input type="password" className="form-control" name="your-confirm-pass"
-                        placeholder="Your Confirm Password" />
+                    <input type="text" className="form-control" name="name" placeholder="Your Name" onChange={this.inputHandeler} value={this.state.name}/>
                 </div>
                 <div className="form-group">
-                    <input type="text" className="form-control" name="your-name" placeholder="Your Name" />
+                    <input type="tel" className="form-control" name="mob" placeholder="Your mob" onChange={this.inputHandeler} value={this.state.mob}/>
                 </div>
                 <div className="form-group">
-                    <input type="tel" className="form-control" name="your-mob" placeholder="Your mob" />
+                    <input type="text" className="form-control" name="city" placeholder="Your City" onChange={this.inputHandeler} value={this.state.city}/>
                 </div>
                 <div className="form-group">
-                    <input type="text" className="form-control" name="your-city" placeholder="Your City" />
+                    <input type="text" className="form-control" name="state" placeholder="Your State" onChange={this.inputHandeler} value={this.state.state}/>
                 </div>
                 <div className="form-group">
-                    <input type="text" className="form-control" name="your-state" placeholder="Your State" />
-                </div>
-                <div className="form-group">
-                    <select id="ticket-type" name="ticket-type" className="form-control">
+                    <select id="ticket-type" name="type" className="form-control" onChange={this.inputHandeler} value={this.state.type}>
                         <option value="">-- Select Blood Group --</option>
                         <option value="Apos">A+</option>
                         <option value="Aneg">A-</option>
@@ -64,9 +111,9 @@ class LoginModal extends Component {
                     </select>
                 </div>
                 <div className="text-center">
-                    <button type="submit" className="btn btn-danger">Register</button>
+                    <button type="submit" className="btn btn-danger" onClick={this.onformSubmission}>Register</button>
                 </div>
-            </form>
+            
         </div>;
 
         return (

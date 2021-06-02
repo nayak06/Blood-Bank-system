@@ -2,6 +2,32 @@ import React, { Component } from 'react'
 import './design/App.css'
 
 export class AdminPage extends Component {
+
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            email:null,
+            pass:'',
+            con_pass:'',
+            name:'',
+            mob:'',
+            city:'',
+            state:'',
+            type:''
+        }
+    }
+    
+    
+
+
+    inputHandeler=(event)=>{
+        this.setState({
+            [event.target.name]:event.target.value
+        })
+        console.log(this.email+" "+this.pass)
+    }
+
     render() {
         return (
             <div>
@@ -10,29 +36,29 @@ export class AdminPage extends Component {
                         <h2>Add a User</h2>
                         <form method="POST" action="#">
                             <div className="form-group">
-                                <input type="email" className="form-control" name="your-email" placeholder="Your Email" />
+                                <input type="email" className="form-control" name="email" placeholder="Your Email" onChange={this.inputHandeler} value={this.state.email} />
                             </div>
                             <div className="form-group">
-                                <input type="password" className="form-control" name="your-pass" placeholder="Your Password" />
+                                <input type="password" className="form-control" name="pass" placeholder="Your Password"  onChange={this.inputHandeler} value={this.state.pass}/>
                             </div>
                             <div className="form-group">
-                                <input type="password" className="form-control" name="your-confirm-pass"
+                                <input type="password" className="form-control" name="con-pass"
                                     placeholder="Your Confirm Password" />
                             </div>
                             <div className="form-group">
-                                <input type="text" className="form-control" name="your-name" placeholder="Your Name" />
+                                <input type="text" className="form-control" name="name" placeholder="Your Name" />
                             </div>
                             <div className="form-group">
-                                <input type="tel" className="form-control" name="your-mob" placeholder="Your mob" />
+                                <input type="tel" className="form-control" name="mob" placeholder="Your mob" />
                             </div>
                             <div className="form-group">
-                                <input type="text" className="form-control" name="your-city" placeholder="Your City" />
+                                <input type="text" className="form-control" name="city" placeholder="Your City" />
                             </div>
                             <div className="form-group">
-                                <input type="text" className="form-control" name="your-state" placeholder="Your State" />
+                                <input type="text" className="form-control" name="state" placeholder="Your State" />
                             </div>
                             <div className="form-group">
-                                <select id="ticket-type" name="ticket-type" className="form-control">
+                                <select id="ticket-type" name="type" className="form-control">
                                     <option value="">-- Select Blood Group --</option>
                                     <option value="Apos">A+</option>
                                     <option value="Aneg">A-</option>
