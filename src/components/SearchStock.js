@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import image2 from './images/gallery/g1.jpg'
-import './App.css'
+import image2 from '../images/gallery/g1.jpg'
+import './design/App.css'
 
 class SearchStock extends Component {
     render() {

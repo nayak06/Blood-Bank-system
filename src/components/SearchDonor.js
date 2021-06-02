@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import image from './images/gallery/g1.jpg'
-import './App.css'
+import image from '../images/gallery/g1.jpg'
+import './design/App.css'
 
 
 class SearchDonor extends Component {

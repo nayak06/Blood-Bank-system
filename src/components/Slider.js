@@ -1,6 +1,6 @@
 import React from 'react'
-import image from './images/slider/slide-02.jpg' 
-import './App.css'
+import image from '../images/slider/slide-02.jpg' 
+import './design/App.css'
 
 
 function Slider() {

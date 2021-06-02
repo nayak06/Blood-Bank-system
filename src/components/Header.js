@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './App.css';
+import './design/App.css';
 import {Link, Router} from 'react-router-dom'
 import Login from './LoginModal'
 

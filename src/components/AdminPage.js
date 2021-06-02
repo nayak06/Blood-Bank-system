@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './App.css'
+import './design/App.css'
 
 export class AdminPage extends Component {
     render() {

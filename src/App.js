@@ -1,10 +1,10 @@
-import './App.css';
-import Header from './Header'
-import Footer from './Footer'
-import Home from './Home'
-import Stock from './SearchStock'
-import Profile from './Profile'
-import Login from './LoginModal'
+import './components/design/App.css';
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Home from './components/Home'
+import Stock from './components/SearchStock'
+import Profile from './components/Profile'
+import Login from './components/LoginModal'
 import { Route, BrowserRouter, Link } from 'react-router-dom'
 
 
